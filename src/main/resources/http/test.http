@@ -1,0 +1,30 @@
+###
+GET http://localhost:8080/api/product?id=1
+Accept: application/json
+
+###
+GET http://{{host}}/api/product?id=1&categoryId=324535235&price=1&name=444&test=테스트&stockCnt=1
+
+###
+GET http://{{host}}/api/product/body
+Content-Type: application/json
+
+{
+  "id": "1",
+  "categoryId": 3244,
+  "name": "한규호",
+  "price": 2313,
+  "stockCnt": 3254235234,
+  "test": "테스트~"
+}
+
+###
+POST http://{{host}}/api/product
+Content-Type: application/json
+
+{
+  "categoryId": 21,
+  "name": "한성 한고무 무접점",
+  "price": 150000,
+  "stockCnt": 150
+}

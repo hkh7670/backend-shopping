@@ -7,10 +7,17 @@ import com.example.backend.category.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
+
+    @Override
+    public List<Category> getCategoryList() {
+        return categoryRepository.getCategoryList();
+    }
 
     @Override
     public CategoryResponse getCategory(Long id) {

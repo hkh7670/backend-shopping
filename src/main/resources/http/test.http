@@ -1,9 +1,10 @@
 ###
 GET http://localhost:8080/api/product?id=1
-Accept: application/json
+Content-Type: application/json
 
 ###
 GET http://{{host}}/api/product?id=1&categoryId=324535235&price=1&name=444&test=테스트&stockCnt=1
+Content-Type: application/json
 
 ###
 GET http://{{host}}/api/product/body

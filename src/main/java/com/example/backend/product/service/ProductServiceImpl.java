@@ -6,14 +6,14 @@ import com.example.backend.common.exception.ErrorCode;
 import com.example.backend.common.exception.NotFoundException;
 import com.example.backend.product.dto.ProductInsertRequest;
 import com.example.backend.product.dto.ProductResponse;
+import com.example.backend.product.dto.ProductSelectRequest;
 import com.example.backend.product.entity.Product;
 import com.example.backend.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,10 +24,8 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<ProductResponse> getProductList() {
-        return productRepository.findAll().stream()
-                .map(ProductResponse::new)
-                .collect(Collectors.toList());
+    public PageImpl<ProductResponse> getProductList(ProductSelectRequest request, Pageable pageable) {
+        return productRepository.getProductList(request, pageable);
     }
 
     @Override

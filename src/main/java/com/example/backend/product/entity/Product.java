@@ -33,7 +33,7 @@ public class Product extends BaseTimeEntity {
     @Column
     private Long stockCnt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "CATEGORY_ID", insertable = false, updatable = false)
     private Category category;
 
